@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "163070316545",
+    "project_id": "mini-facebook-73145",
+    "storage_bucket": "mini-facebook-73145.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163070316545:android:896e9c70166577b7a43000",
+        "android_client_info": {
+          "package_name": "com.example.yolo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163070316545-evjsqp4flmqv738n9g8v2r7t8t8njlk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwVaORocrpFeSKrZnOUgLcc4gohu0eNIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163070316545-evjsqp4flmqv738n9g8v2r7t8t8njlk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
