@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yolo/screens/phoneLoginScreen.dart';
 
 import '../services/firebaseAuthService.dart';
 
@@ -95,38 +96,86 @@ class _LoginScreenState extends State<LoginScreen>
                     const SizedBox(height: 80),
                     _isSigningIn
                         ? const CircularProgressIndicator(color: Colors.white)
-                        : ElevatedButton.icon(
-                            onPressed: () async {
-                              await FirebaseGoogleAuthService.loginWithGoogle(
-                                context,
-                                (value) => setState(() => _isSigningIn = value),
-                              );
-                            },
-                            icon: const FaIcon(
-                              FontAwesomeIcons.google,
-                              color: Colors.white,
-                            ),
-                            label: const Text(
-                              "Login with Google",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
+                        : Column(
+                            children: [
+                              ElevatedButton.icon(
+                                onPressed: () async {
+                                  await FirebaseGoogleAuthService.loginWithGoogle(
+                                    context,
+                                    (value) =>
+                                        setState(() => _isSigningIn = value),
+                                  );
+                                },
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.google,
+                                  color: Colors.white,
+                                ),
+                                label: const Text(
+                                  "Login with Google",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.redAccent.shade400,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 30,
+                                    vertical: 14,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  elevation: 8,
+                                ),
                               ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.redAccent.shade400,
-                              foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                                vertical: 14,
+                              const SizedBox(height: 20),
+                              Text(
+                                "OR",
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                               ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                              const SizedBox(height: 20),
+                              ElevatedButton.icon(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => const PhoneLoginScreen(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.phone,
+                                  color: Colors.white,
+                                ),
+                                label: const Text(
+                                  "Login with Phone",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.green.shade600,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 30,
+                                    vertical: 14,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  elevation: 8,
+                                ),
                               ),
-                              elevation: 8,
-                              shadowColor: Colors.black45,
-                            ),
+                            ],
                           ),
                   ],
                 ),
